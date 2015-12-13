@@ -6,10 +6,8 @@ build:
 tag:
 	@sh docker_helper.sh tag
 
-# Usage: $ make tagv v="1.0"
-# TODO: replace with grabbing from version.py
-tagv:
-	@sh docker_helper.sh tag $(v)
+v:
+	@sh docker_helper.sh tag `cat version`
 
 test-deps:
 	@pip install -r test-requirements.txt
@@ -20,4 +18,4 @@ test:
 push:
 	@sh docker_helper.sh push
 
-.PHONY: build tag tagv test-deps test push
+.PHONY: build tag v test-deps test push

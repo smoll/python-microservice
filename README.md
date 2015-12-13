@@ -9,8 +9,8 @@ Will use this for "spiking" various deployment strategies.
     make
     ```
 
-0. Push a custom tag, e.g. `smoll/python-microservice:0.1`
+0. Push current version, e.g. `smoll/python-microservice:0.1` to Docker Hub
 
     ```bash
-    make tagv v="0.1" && make push
+    make v && make push
     ```
