@@ -1,0 +1,12 @@
+# See https://github.com/svanoort/pyresttest/blob/master/quickstart.md
+---
+- test:
+    - name: "Basic smoketest"
+    - url: "/"
+    - expected_status: [200]
+
+- test:
+    - name: "Check for hello in raw body"
+    - url: "/"
+    - validators: # operator is applied as: <actual> <operator> <expected>
+        - compare: {raw_body: "", comparator: "regex", expected: 'Hello.*'}
