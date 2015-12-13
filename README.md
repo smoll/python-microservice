@@ -12,5 +12,5 @@ Will use this for "spiking" various deployment strategies.
 0. Push current version, e.g. `smoll/python-microservice:0.1` to Docker Hub
 
     ```bash
-    make v && make push
+    make v
     ```
