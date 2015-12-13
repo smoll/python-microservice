@@ -2,35 +2,28 @@
 
 #
 # Usage:
-# sh test.sh - Tests smoll/python-microservice:latest
-# sh test.sh 0.1 - Tests smoll/python-microservice:0.1
+# sh test.sh - Builds and tests, using docker-compose.yml
 #
 
-# Assume the image has already been built/tagged by docker_helper.sh
+# Build everything
+docker-compose build
 
-test_container_name="pmtest"
+# Run the containers
+docker-compose up -d
 
-if [ -n "$1" ]; then
-    tag_to_test="$1"
-else
-    tag_to_test="latest"
-fi
-
-echo "Going to test Docker image: smoll/python-microservice:${tag_to_test}"
-
-# Start a container
-docker run -d -p 5001:5000 --name ${test_container_name} smoll/python-microservice:${tag_to_test}
+# TODO: figure out how to block until redis is up, otherwise this test usually
+# fails the first time it is run, but then passes every subsequent time!
 
 # Run the test
 resttest.py http://$(docker-machine ip default):5001 test.yaml
 rc=$?
 
-# Remove the container
-docker rm -f ${test_container_name}
+# Remove the containers
+docker-compose rm -v -f
 if [ $? -eq 0 ]; then
-    echo "Test container successfully deleted."
+    echo "Test container(s) successfully deleted."
 else
-    echo "Could not delete test container named '${test_container_name}'. Check 'docker ps' output!" >&2
+    echo "Could not delete test container(s). Check 'docker ps' output!" >&2
 fi
 
 # Exit with test command exit code

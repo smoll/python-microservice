@@ -8,7 +8,7 @@ tag:
 
 v:
 	@sh docker_helper.sh tag `cat version`
-	@sh test.sh `cat version`
+	@sh test.sh
 	@sh docker_helper.sh push
 
 test-deps:

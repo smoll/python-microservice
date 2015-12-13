@@ -10,3 +10,9 @@
     - url: "/"
     - validators: # operator is applied as: <actual> <operator> <expected>
         - compare: {raw_body: "", comparator: "regex", expected: 'Hello.*'}
+
+- test:
+    - name: "Check hits is an int"
+    - url: "/"
+    - validators:
+        - compare: {raw_body: "", comparator: "regex", expected: '.*I have been seen [0-9]+ times\.'}
