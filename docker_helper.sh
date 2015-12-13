@@ -35,16 +35,16 @@ function push {
 }
 
 case $1 in
-  build)
-    build "$@"
-  ;;
-  tag)
-    tag "$@"
-  ;;
-  push)
-    push "$@"
-  ;;
-  *)
-    echo "Not a valid function: $1"
-  ;;
+    build)
+        build "$@"
+    ;;
+    tag)
+        tag "$@"
+    ;;
+    push)
+        push "$@"
+    ;;
+    *)
+        echo "Not a valid function: $1"
+    ;;
 esac
