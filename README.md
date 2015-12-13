@@ -12,6 +12,5 @@ Will use this for "spiking" various deployment strategies.
 0. Push a custom tag, e.g. `smoll/python-microservice:0.1`
 
     ```bash
-    sh docker_helper.sh tag 0.1
-    sh docker_helper.sh push
+    make tagv v="0.1" && make push
     ```
