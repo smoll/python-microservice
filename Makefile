@@ -11,13 +11,10 @@ v:
 	@sh test.sh
 	@sh docker_helper.sh push
 
-test-deps:
-	@pip install -r test-requirements.txt
-
 test:
 	@sh test.sh
 
 push:
 	@sh docker_helper.sh push
 
-.PHONY: build tag v test-deps test push
+.PHONY: build tag v test push
