@@ -3,7 +3,7 @@ Will use this for "spiking" various deployment strategies.
 
 ## Usage
 
-0. Build, tag, test and push to Docker Hub
+0. Build, tag, test and push, e.g. `smoll/python-microservice:master` to Docker Hub
 
     ```bash
     make
