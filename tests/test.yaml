@@ -9,7 +9,7 @@
     - name: "Check for hello in raw body"
     - url: "/"
     - validators: # operator is applied as: <actual> <operator> <expected>
-        - compare: {raw_body: "", comparator: "regex", expected: 'Hello.*'}
+        - compare: {raw_body: "", comparator: "regex", expected: 'Hello World from.*'}
 
 - test:
     - name: "Check hits is an int"
